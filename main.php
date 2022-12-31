@@ -18,7 +18,7 @@
 
 <body>
     <header><?php include 'includes/header.php'; ?></header>
-    <main class='container'>
+    <main class='container pb-5'>
         <h3 class = "text-dark fw-bold m-3">Courses</h3>
         <?php allCourses($_SESSION['user']); ?>
     </main>

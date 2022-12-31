@@ -19,13 +19,13 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <?php
             $user = $_SESSION['user'];
-            $statement = $conn->prepare("SELECT c_name FROM course WHERE i_id = ?");
+            $statement = $conn->prepare("SELECT c_id, c_name FROM course WHERE i_id = ?");
             $statement->execute([$user]);
             $statement->setFetchMode(PDO::FETCH_ASSOC);
             $rows = $statement->fetchAll();
         
             foreach($rows as $r){
-                echo '<li><a class="dropdown-item" href="#">'.$r['c_name'].'</a></li>';
+                echo '<li><a class="dropdown-item" href="course.php?c_id='. $r['c_id'] .'">'.$r['c_name'].'</a></li>';
             }
         ?>
         </ul>
@@ -56,7 +56,7 @@
                 <?php echo "  ".$fname." ".$lname ?>
             </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                    <li><a class="dropdown-item" href="profile.php">My Profile</a></li>
                     <li><a class="dropdown-item" href="includes/logout.php">Logout</a></li>
                 </ul>
             </div>

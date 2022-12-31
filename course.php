@@ -3,13 +3,19 @@
     include_once 'database/db.php';
     $conn = OpenCon();
     include_once 'database/dbFunctions.php';
+
+    $id = $_GET['c_id'];
+    $statement = $conn->prepare("SELECT c_name FROM course WHERE c_id=?");
+    $statement->execute([$id]);
+    $courseName= $statement->fetchColumn();
+
 ?>
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Course</title>
+    <title> <?php echo $courseName; ?> </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
@@ -19,7 +25,7 @@
 <body>
     <header><?php include 'includes/header.php'; ?></header>
     <main class='container'>
-        <h3 class = "text-dark fw-bold m-3">Courses</h3>
+        <h3 class = "text-dark fw-bold m-3"> <?php echo $courseName; ?> </h3>
     </main>
     <footer class="bg-dark text-center text-lg-start fixed-bottom text-light"><?php include 'includes/footer.php'; ?></footer>
 </body>
