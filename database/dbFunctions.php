@@ -1,5 +1,12 @@
 <?php
     include_once "database.php";
+    //function to check entered data
+    function check_input($data) {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data, ENT_QUOTES);
+      return $data;
+    }
     function allCourses($instructor){
         $conn = OpenCon();
         $statement = $conn->prepare("SELECT c_id, c_name, stu_enrolled FROM course WHERE i_id = ?");

@@ -2,14 +2,8 @@
     //connecting this page to database
     include_once 'database/db.php';
     $conn = OpenCon();
-
-    //function to check entered data
-    function check_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data, ENT_QUOTES);
-        return $data;
-    }
+    include_once 'database/dbFunctions.php';
+    
     //the user cliked log in button 
     if(isset($_POST["login"])){
 

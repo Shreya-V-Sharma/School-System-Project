@@ -24,7 +24,7 @@
 
 <body>
     <header><?php include 'includes/header.php'; ?></header>
-    <main class='container'>
+    <main class='container pb-5'>
         <h3 class = "text-dark fw-bold m-3"> <?php echo $courseName; ?> </h3>
     </main>
     <footer class="bg-dark text-center text-lg-start fixed-bottom text-light"><?php include 'includes/footer.php'; ?></footer>

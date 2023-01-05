@@ -29,35 +29,31 @@
 
 <body>
     <header><?php include 'includes/header.php'; ?></header>
-    <main class='container pb-5 mt-5 d-flex justify-content-center '>
-        <table class="table table-striped table-sm w-50">
-            <tbody>
-                <tr>
-                    <th scope="row">Name</th>
-                    <td> <?php echo $fname .' '. $lname ; ?> </td>
-                </tr>
-                <tr>
-                    <th scope="row">Email</th>
-                    <td> <?php echo $email ; ?> </td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>
-                        <a href='#'>
-                            <button type='button'>Update Email</button>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>
-                        <a href='#'>
-                            <button type='button'>Change Password</button>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <main class='pb-5 mt-5 d-flex justify-content-center align-content-centre'>
+        <div class = "container">
+            <table class="table table-striped table-sm w-50 pb-5 mx-auto">
+                <tbody>
+                    <tr>
+                        <th scope="row">Name</th>
+                        <td> <?php echo $fname .' '. $lname ; ?> </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Email</th>
+                        <td> <?php echo $email ; ?> </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+                <a href='updateEmail.php' class = "mt-2">
+                    <button type='button'>Update Email</button>
+                </a>
+            </div>
+            <div class="d-flex justify-content-center">
+                <a href='changePassword.php' class = "mt-2">
+                    <button type='button'>Change Password</button>
+                </a>
+            </div>
+        </div>
     </main>
     <footer class="bg-dark text-center text-lg-start fixed-bottom text-light"><?php include 'includes/footer.php'; ?></footer>
 </body>
