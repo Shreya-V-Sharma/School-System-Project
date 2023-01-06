@@ -5,7 +5,6 @@
     $conn = OpenCon();
     include_once 'database/dbFunctions.php';
 
-    //the user cliked log in button 
     if(isset($_POST['changePassword']))
     {
         $oldPass = check_input($_POST['oldPassword']);
