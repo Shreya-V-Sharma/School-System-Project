@@ -4,9 +4,9 @@
     $conn = OpenCon();
     include_once 'database/dbFunctions.php';
 
-    $id = $_GET['c_id'];
+    $cid = $_GET['c_id'];
     $statement = $conn->prepare("SELECT c_name FROM course WHERE c_id=?");
-    $statement->execute([$id]);
+    $statement->execute([$cid]);
     $courseName= $statement->fetchColumn();
 
 ?>
@@ -26,6 +26,32 @@
     <header><?php include 'includes/header.php'; ?></header>
     <main class='container pb-5'>
         <h3 class = "text-dark fw-bold m-3"> <?php echo $courseName; ?> </h3>
+        <div class="row mt-4">
+            <div class="col-4">
+              <div class="card m-4 bg-warning" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title "><a href="assignment.php?c_id=<?php echo $cid; ?>" class="stretched-link text-decoration-none text-white">Assignments</a></h5>
+                  <p class="card-text text-white"><br>View, add, delete or edit assignments for this course</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="card m-4 bg-warning" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title "><a href="student.php?c_id=<?php echo $cid; ?>" class="stretched-link text-decoration-none text-white">Students</a></h5>
+                  <p class="card-text text-white"><br>View, add or remove students from this course</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="card m-4 bg-warning" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title "><a href="grade.php?c_id=<?php echo $cid; ?>" class="stretched-link text-decoration-none text-white">Grades</a></h5>
+                  <p class="card-text text-white"><br>Enter grades by assignment or by students for this course</p>
+                </div>
+              </div>
+            </div>
+        </div>
     </main>
     <footer class="bg-dark text-center text-lg-start fixed-bottom text-light"><?php include 'includes/footer.php'; ?></footer>
 </body>
