@@ -36,7 +36,7 @@
             $count = $statement->fetchColumn();
             echo $startRow . '
             <div class="col-4">
-              <div class="card m-4 bg-secondary" style="width: 18rem;">
+              <div class="card m-4 bg-info" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title "><a href="course.php?c_id='.$r['c_id'].'" class="stretched-link text-decoration-none text-white">'.$r['c_name'].'</a></h5>
                   <p class="card-text text-white"><br>Number of students enrolled: '.$r['stu_enrolled'].'<br>Number of assignment: '.$count.'</p>
